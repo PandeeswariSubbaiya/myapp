@@ -1,3 +1,5 @@
-def call(String groupId, String artifactId, String version, String packaging, String file, String repositoryUrl, String repositoryUsername, String repositoryPassword) {
-    new com.mycompany.jenkins.sharedlibrary.Nexus().upload(groupId, artifactId, version, packaging, file, repositoryUrl, repositoryUsername, repositoryPassword)
+def publishToNexus(String repositoryUrl, String groupId, String artifactId, String version, File artifactFile) {
+  def nexus = new NexusRepository(repositoryUrl)
+  nexus.authenticate('username', 'password')
+  nexus.uploadMaven(groupId, artifactId, version, artifactFile)
 }
