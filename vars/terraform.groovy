@@ -1,4 +1,3 @@
-#!/bin/bash
 def call(Map config) {
         sh """
             //terraform init -input=false ${config.tf_init_args}
