@@ -8,4 +8,7 @@ def call(Map config) {
     if (qualityGateResult != 'OK') {
         error "Quality gate failed: ${qualityGateResult}"
     }
+    
+    // Quality gate passed, do something
+    echo "Quality gate passed!"
 }
