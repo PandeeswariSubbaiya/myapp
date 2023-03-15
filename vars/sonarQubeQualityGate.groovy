@@ -1,5 +1,5 @@
 def call(Map config) {
-    def qualityGateUrl = "${config.sonarqube_url}/api/qualitygates/project_status?projectKey=${config.project_key}"
+    def qualityGateUrl = "${config.sonarqube_url}/api/qualitygates/project_status?projectName=${config.project_name}"
     def qualityGateResult = sh (
         script: "curl -s -u ${config.sonarqube_token}: ${qualityGateUrl} | jq -r .projectStatus.status",
         returnStdout: true
